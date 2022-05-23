@@ -53,7 +53,7 @@
 
 <script>
 import { vaildMobile } from '@/utils/validate'
-
+import { mapActions } from 'vuex' // 引入vuex的辅助函数
 export default {
   name: 'Login',
   data() {
@@ -116,10 +116,14 @@ export default {
           })
         } else {
           console.log('error submit!!')
-          return false
+          // return false
         }
       })
-    }
+    },
+    ...mapActions(['user/login']),
+    this.$refs.loginForm.validate(async isOK =>{
+
+    })
   }
 }
 </script>
