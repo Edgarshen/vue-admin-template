@@ -106,11 +106,11 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate(isOK => {
+      this.$refs.loginForm.validate(async isOK => {
         if (isOK) {
           try {
             this.loading = true
-            this['user/login'](this.loginForm)
+            await this['user/login'](this.loginForm)
             this.$router.push('/')
           } catch (error) {
             console.log(error)
