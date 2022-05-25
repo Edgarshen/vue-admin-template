@@ -5,11 +5,11 @@ const state = {
   token: getToken() // 设置token的共享状态,null-->getToken()初始化vuex的时候，就先从缓存中取，没有就是null
 }
 const mutations = {
-  GetToken(state, token) {
+  setToken(state, token) {
     state.token = token // 将数据传给VUEX
     setToken(token) // 同步到缓存
   },
-  RemoveToken(state) {
+  removeToken(state) {
     state.token = null
     removeToken() // 同步到缓存
   }
